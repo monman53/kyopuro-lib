@@ -1,0 +1,5 @@
+# kyopuro-lib
+
+## build
+
+* `make`
