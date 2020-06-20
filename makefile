@@ -1,13 +1,12 @@
-.PHONY: test
+TARGETS = build/all.hpp build/math.hpp
 
-all: build/kyopuro.hpp build/test
-
-build/kyopuro.hpp: include/main.hpp include/math.hpp
+build/%.hpp: include/%.hpp
 	mkdir -p build
-	g++ -E include/main.hpp -P > build/kyopuro.hpp
+	cat include/system.hpp > $@
+	g++ -E -DBUILD=1 $< -P >> $@
 
-build/test: build/kyopuro.hpp test/main.cpp
-	g++ test/main.cpp -o build/test
+all: $(TARGETS)
 
 clean:
-	rm -rf build
+	rm -f build/*.hpp
+	rmdir build

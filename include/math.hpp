@@ -1,14 +1,9 @@
-namespace kyopuro {
+#include "common.hpp"
 
-class mod_int {
-  unsigned int value_;
+namespace pc::math {
 
-public:
-  mod_int(unsigned int value_) : value_(value_) {}
-  mod_int &operator=(const unsigned int rhs) {
-    value_ = rhs;
-    return *this;
-  }
-};
+ull gcd(ull a, ull b) { return b ? gcd(b, a % b) : a; }
 
-} // namespace kyopuro
+} // namespace pc::math
+
+namespace pcm = pc::math;
