@@ -1,6 +1,9 @@
 #include <algorithm>
+#include <cassert>
+#include <functional>
 #include <iostream>
 #include <map>
+#include <numeric>
 #include <set>
 #include <tuple>
 #include <vector>
